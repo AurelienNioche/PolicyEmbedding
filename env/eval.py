@@ -23,7 +23,7 @@ def trajectories(trajectories: torch.Tensor, env: gym.Env, verbose: bool = False
     x = trajectories.cpu().numpy()
     y = torch.zeros(len(x))
     for i, trj in enumerate(x):
-        y[i] = eval_trajectory(trajectory=trj, env=env)
+        y[i] = trajectory(trajectory=trj, env=env)
     if verbose:
         print(f"Avg reward: {y.mean().item():.3f} +/- {y.std().item():.3f}; Range = {y.min().item():.3f}, {y.max().item():.3f}")
     return y 

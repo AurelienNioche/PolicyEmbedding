@@ -3,7 +3,6 @@ import torch
 
 
 def find_device(force_cpu=False):
-    force_cpu = True
     if not force_cpu and torch.cuda.is_available():
         device = torch.device("cuda")
     else:
